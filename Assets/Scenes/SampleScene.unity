@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: a8cef7be9dcdec74b9995d9063d1fca3, type: 2}
 --- !u!1 &378861272 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100006, guid: e87e860c75cc96c408c9a01f755bfbc8, type: 3}
@@ -269,7 +269,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: e87e860c75cc96c408c9a01f755bfbc8, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 4294967295
+      value: 127
       objectReference: {fileID: 0}
     - target: {fileID: 100004, guid: e87e860c75cc96c408c9a01f755bfbc8, type: 3}
       propertyPath: m_Name
@@ -440,11 +440,25 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2082199434}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1509.4962, y: 1559.2958, z: 299.635}
   m_Center: {x: -57.390835, y: -8.097771, z: 131.86072}
+--- !u!64 &2082199442
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2082199434}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300002, guid: e87e860c75cc96c408c9a01f755bfbc8, type: 3}
 --- !u!4 &2145099745 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4135013735270702856, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
@@ -672,6 +686,10 @@ PrefabInstance:
     - target: {fileID: 5585912406094115826, guid: 6c1a2bb23e645ee40bdf1a33bce1a2dd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6061993365459333752, guid: 6c1a2bb23e645ee40bdf1a33bce1a2dd, type: 3}
+      propertyPath: target_range
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
