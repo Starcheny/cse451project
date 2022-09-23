@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18035254, g: 0.22578925, b: 0.30702662, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: a8cef7be9dcdec74b9995d9063d1fca3, type: 2}
 --- !u!1 &378861272 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100006, guid: e87e860c75cc96c408c9a01f755bfbc8, type: 3}
@@ -672,6 +672,10 @@ PrefabInstance:
     - target: {fileID: 5585912406094115826, guid: 6c1a2bb23e645ee40bdf1a33bce1a2dd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6061993365459333752, guid: 6c1a2bb23e645ee40bdf1a33bce1a2dd, type: 3}
+      propertyPath: target_range
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
