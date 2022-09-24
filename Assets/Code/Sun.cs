@@ -5,7 +5,8 @@ using UnityEngine;
 public class Sun : MonoBehaviour
 {
     public Transform sunPos;
-    public GameObject[] myObjects;
+    //public GameObject[] myObjects;
+    public GameObject myObjects;
     bool timerReached = false;
     // Start is called before the first frame update
     void Start()
@@ -28,11 +29,12 @@ public class Sun : MonoBehaviour
         {
             timerReached = true;
             //GENERATE MONSTERS
-            int randomIndex =  Random.Range(0,myObjects.Length);
+            int randomIndex =  Random.Range(0,1000);
             Vector3 randomSpawnPosition = new Vector3(Random.Range(-2,-4),0,Random.Range(10,15));
-            Instantiate(myObjects[randomIndex],randomSpawnPosition,Quaternion.identity);
+            // Instantiate(myObjects,randomSpawnPosition,Quaternion.identity);
             Debug.Log("sun is night");
             Debug.Log(timerReached);
+            Debug.Log(randomSpawnPosition);
         }
         transform.RotateAround(Vector3.zero, Vector3.right, 10f * Time.deltaTime);
         transform.LookAt(Vector3.zero);
