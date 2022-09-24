@@ -2229,6 +2229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nav: {fileID: 5585912406093719926}
+  target_range: 15
 --- !u!1 &5585912406093623252
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,7 +8,9 @@ public class Create : MonoBehaviour
    public bool stopspawn = false;
    public float spawnDelay;
    public float spawnTime;
+   public float time = 0;
    void Start(){
+    // if(时间夜晚)
     InvokeRepeating("SpawnObj",spawnTime,spawnDelay);
    
    }
@@ -20,5 +22,20 @@ public class Create : MonoBehaviour
         }else{
             Instantiate(obj,new Vector3(Random.Range(-2,-4),0,Random.Range(10,15)),Quaternion.identity);
         }
+   }
+
+   void Update() {
+    if(time < 27)
+            {
+                time += Time.deltaTime;
+            } else
+            {
+                stopspawn = true;
+            }
+            // if (stopspawn)
+            // {
+            //     time = 10;
+            // }
+
    }
 }
