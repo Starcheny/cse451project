@@ -76,11 +76,15 @@ public class bone : MonoBehaviour
                     this.is_around_the_player = true;
                 }
 
+                
                 this.nav.SetDestination(this.game_player.transform.position);
             }
+
+
         }
         else
         {
+
             if (this.enemy_statu == 1)
             {
                 if (Vector3.Distance(this.transform.position, this.game_player.transform.position) >= this.target_range)
@@ -88,6 +92,7 @@ public class bone : MonoBehaviour
                     this.change_to_running();
                     this.is_around_the_player = false;
                 }
+               
 
                 this.transform.LookAt(new Vector3(this.game_player.transform.position.x, 0, this.game_player.transform.position.z));
             }
@@ -112,6 +117,8 @@ public class bone : MonoBehaviour
 
         //Modify status
         this.enemy_statu = 1;
+
+        
     }
 
 
@@ -131,4 +138,19 @@ public class bone : MonoBehaviour
 
 
     }
+
+   
+    #region 
+   
+    public void attack_start()
+    {
+        
+        if (Vector3.Distance(this.transform.position, this.game_player.transform.position) < this.target_range)
+        {
+            this.audio_source.Play();
+            this.game_player.GetComponent<player_health>().be_hit(10f);
+        }
+    }
+
+    #endregion
 }
