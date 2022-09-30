@@ -7,9 +7,9 @@ onBoardingDoNotAskAgain = true
 showPackageIndexes = false
 showStatusBar = false
 scopes = {
-	"last_search.8C24D059" = "Console"
+	"last_search.8C24D059" = "manager"
 	"OpenInspectorPreview.8C24D059" = "0"
-	"currentGroup.8C24D059" = "settings"
+	"currentGroup.8C24D059" = "menu"
 }
 providers = {
 	find = {
@@ -56,6 +56,8 @@ providers = {
 objectSelectors = {
 }
 recentSearches = [
+	"ma"
+	"package"
 	"co"
 	"l"
 	"m"
