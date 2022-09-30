@@ -1927,6 +1927,7 @@ GameObject:
   - component: {fileID: 5585912406093719926}
   - component: {fileID: 8320344353106545722}
   - component: {fileID: 6061993365459333752}
+  - component: {fileID: -6538793202008433389}
   m_Layer: 0
   m_Name: minion_1
   m_TagString: enemy
@@ -1997,7 +1998,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5585912406093623250}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.27, y: 4.34, z: 1.4}
@@ -2230,6 +2231,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nav: {fileID: 5585912406093719926}
   target_range: 15
+--- !u!64 &-6538793202008433389
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5585912406093623250}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
 --- !u!1 &5585912406093623252
 GameObject:
   m_ObjectHideFlags: 0
