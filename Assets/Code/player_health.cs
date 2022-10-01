@@ -26,7 +26,7 @@ public class player_health : MonoBehaviour
     {
         if (this.health <= 0)
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(1);
         }
         hp_percent = this.health / this.max_health;
 
