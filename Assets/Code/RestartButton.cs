@@ -8,8 +8,7 @@ public class RestartButton : MonoBehaviour
   
     public void ResetTheGame()
     {
-         
-         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        print("The button is working");
+         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+         print("The button is working");
     }
 }
