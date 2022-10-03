@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17276844, g: 0.21589246, b: 0.2978263, a: 1}
+  m_IndirectSpecularColor: {r: 0.17283328, g: 0.2159634, b: 0.29792222, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1337,12 +1337,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe0a72ce6e4a8dd40a222a27aaeeafe9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npc: {fileID: 11400000, guid: 312bc375efc79b44d94270788ce4ff7e, type: 2}
-  player: {fileID: 1190568701}
-  dialogueUI: {fileID: 0}
-  npcName: {fileID: 0}
-  npcDialogueBox: {fileID: 0}
-  playerResponse: {fileID: 0}
 --- !u!1 &124532924
 GameObject:
   m_ObjectHideFlags: 0
@@ -8125,12 +8119,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe0a72ce6e4a8dd40a222a27aaeeafe9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npc: {fileID: 0}
-  player: {fileID: 0}
-  dialogueUI: {fileID: 0}
-  npcName: {fileID: 0}
-  npcDialogueBox: {fileID: 0}
-  playerResponse: {fileID: 0}
 --- !u!1 &1732612428
 GameObject:
   m_ObjectHideFlags: 0
