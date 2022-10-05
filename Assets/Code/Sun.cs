@@ -21,8 +21,8 @@ public class Sun : MonoBehaviour
         {
             timerReached = false;
             // STOP GENERATE MONSTERS
-            Debug.Log("sun is day");
-            Debug.Log(timerReached);
+            //Debug.Log("sun is day");
+            //Debug.Log(timerReached);
 
         }
         else if(sunPos.position.y < 0)
@@ -32,9 +32,9 @@ public class Sun : MonoBehaviour
             int randomIndex =  Random.Range(0,1000);
             Vector3 randomSpawnPosition = new Vector3(Random.Range(-2,-4),0,Random.Range(10,15));
             // Instantiate(myObjects,randomSpawnPosition,Quaternion.identity);
-            Debug.Log("sun is night");
-            Debug.Log(timerReached);
-            Debug.Log(randomSpawnPosition);
+            //Debug.Log("sun is night");
+            //Debug.Log(timerReached);
+            //Debug.Log(randomSpawnPosition);
         }
         transform.RotateAround(Vector3.zero, Vector3.right, 10f * Time.deltaTime);
         transform.LookAt(Vector3.zero);

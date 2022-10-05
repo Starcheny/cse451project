@@ -32,7 +32,7 @@ public class player_health : MonoBehaviour
 
         hp_image.fillAmount = hp_percent;
 
-        Debug.Log(hp_percent);
+        
 
     }
 

@@ -16,11 +16,7 @@ public class over : MonoBehaviour
     {
         
     }
-    private void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log("enter");
-        SceneManager.LoadScene(2);
-    }
+ 
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("enter");
