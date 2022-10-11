@@ -71,6 +71,8 @@ namespace StarterAssets
 		private CharacterController _controller;
 		private StarterAssetsInputs _input;
 		private GameObject _mainCamera;
+		public GameObject myBag;
+		bool isOpen;
 
 		private const float _threshold = 0.01f;
 
@@ -115,6 +117,7 @@ namespace StarterAssets
 			JumpAndGravity();
 			GroundedCheck();
 			Move();
+			openMyBag();
 		}
 
 		private void LateUpdate()
@@ -264,5 +267,14 @@ namespace StarterAssets
 			// when selected, draw a gizmo in the position of, and matching radius of, the grounded collider
 			Gizmos.DrawSphere(new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z), GroundedRadius);
 		}
+
+		private void openMyBag()
+        {
+            if (Input.GetKeyDown(KeyCode.B))
+            {
+				isOpen = !isOpen;
+				myBag.SetActive(isOpen);
+            }
+        }
 	}
 }
