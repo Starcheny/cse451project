@@ -74,6 +74,17 @@ public class raser : MonoBehaviour
 
                 this.game_player.GetComponent<player_health>().be_hit(attackDamage);
             }
+
+            else if (hitInfo.collider.CompareTag("Mobs"))
+            {
+                Debug.DrawLine(firePoint.position, hitInfo.point, Color.red);
+                Debug.Log("Did Hit");
+                _lineRenderer.SetPosition(1, hitInfo.point);
+                _lineRenderer.colorGradient = redColor;
+                // cur off health;
+
+                //this.game_player.GetComponent<player_health>().be_hit(attackDamage);
+            }
         }
         else
         {

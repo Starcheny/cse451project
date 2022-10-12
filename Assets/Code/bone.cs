@@ -27,10 +27,13 @@ public class bone : MonoBehaviour
     // the game object of player
     private GameObject game_player;
 
+    //the crystal
+    private GameObject home;
+
     [Header("Target point range")]
     public float target_range;
 
-
+    public float check_range;
     private int enemy_statu;
 
     // Start is called before the first frame update
@@ -44,6 +47,8 @@ public class bone : MonoBehaviour
 
         //find the player
         this.game_player = GameObject.FindGameObjectWithTag("Player");
+
+        this.home = GameObject.FindGameObjectsWithTag("Home")[0];
 
 
         this.health = 7;
@@ -66,37 +71,47 @@ public class bone : MonoBehaviour
             this.nav.isStopped = true;
             Destroy(this.gameObject);
         }
-        if (this.is_around_the_player == false)
+        if(Vector3.Distance(this.transform.position, this.home.transform.position) < this.check_range)
         {
-            if (this.enemy_statu == 0)
-            {
-                if (Vector3.Distance(this.transform.position, this.game_player.transform.position) < this.target_range)
-                {
-                    this.change_to_attack();
-                    this.is_around_the_player = true;
-                }
-
-                
-                this.nav.SetDestination(this.game_player.transform.position);
-            }
-
-
+            this.nav.isStopped = false;
+            this.animator.SetBool("attack", false);
+            this.nav.SetDestination(this.home.transform.position);
         }
         else
         {
-
-            if (this.enemy_statu == 1)
+            if (this.is_around_the_player == false)
             {
-                if (Vector3.Distance(this.transform.position, this.game_player.transform.position) >= this.target_range)
+                if (this.enemy_statu == 0)
                 {
-                    this.change_to_running();
-                    this.is_around_the_player = false;
-                }
-               
+                    if (Vector3.Distance(this.transform.position, this.game_player.transform.position) < this.target_range)
+                    {
+                        this.change_to_attack();
+                        this.is_around_the_player = true;
+                    }
 
-                this.transform.LookAt(new Vector3(this.game_player.transform.position.x, 0, this.game_player.transform.position.z));
+
+                    this.nav.SetDestination(this.game_player.transform.position);
+                }
+
+
+            }
+            else
+            {
+
+                if (this.enemy_statu == 1)
+                {
+                    if (Vector3.Distance(this.transform.position, this.game_player.transform.position) >= this.target_range)
+                    {
+                        this.change_to_running();
+                        this.is_around_the_player = false;
+                    }
+
+
+                    this.transform.LookAt(new Vector3(this.game_player.transform.position.x, 0, this.game_player.transform.position.z));
+                }
             }
         }
+        
     }
 
     
