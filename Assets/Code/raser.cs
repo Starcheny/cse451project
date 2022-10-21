@@ -88,8 +88,8 @@ public class raser : MonoBehaviour
         }
         else
         {
-            Debug.DrawLine(firePoint.position, new Vector3(firePoint.position.x+dist, firePoint.position.y, firePoint.position.z), Color.red);
-            Debug.Log("Did not Hit");
+            //Debug.DrawLine(firePoint.position, new Vector3(firePoint.position.x+dist, firePoint.position.y, firePoint.position.z), Color.red);
+            //Debug.Log("Did not Hit");
             float temp = dist;
             _lineRenderer.SetPosition(1,
                new Vector3(firePoint.position.x + dist, firePoint.position.y, firePoint.position.z));

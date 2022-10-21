@@ -73,8 +73,13 @@ public class bone : MonoBehaviour
         }
         if(Vector3.Distance(this.transform.position, this.home.transform.position) < this.check_range)
         {
-            this.nav.isStopped = false;
-            this.animator.SetBool("attack", false);
+           
+            if (Vector3.Distance(this.transform.position, this.home.transform.position) < this.target_range)
+            {
+                    
+                change_to_attackhome();
+                this.is_around_the_player = true;
+            }
             this.nav.SetDestination(this.home.transform.position);
         }
         else
@@ -136,6 +141,27 @@ public class bone : MonoBehaviour
         
     }
 
+    public void change_to_attackhome()
+    {
+        if (this.enemy_statu == 1)
+            return;
+
+        // Stop wayfinding
+        this.nav.isStopped = true;
+
+        //Face the crystal
+        this.transform.LookAt(this.home.transform.position);
+
+        //Play the beaten animation
+        this.animator.SetBool("attack", true);
+
+        //Modify status
+        this.enemy_statu = 1;
+        
+
+
+    }
+
 
     //change_to_running
     public void change_to_running()
@@ -155,7 +181,7 @@ public class bone : MonoBehaviour
     }
 
    
-    #region 
+    #region     
    
     public void attack_start()
     {
@@ -164,6 +190,12 @@ public class bone : MonoBehaviour
         {
             this.audio_source.Play();
             this.game_player.GetComponent<player_health>().be_hit(10f);
+        }
+
+        if (Vector3.Distance(this.transform.position, this.home.transform.position) < this.target_range)
+        {
+            this.audio_source.Play();
+            this.home.GetComponent<home>().be_hit(10f);
         }
     }
 
