@@ -8,7 +8,7 @@ public class bone : MonoBehaviour
 
 
     //health
-    private int health;
+    private float health;
 
     //animator
     private Animator animator;
@@ -179,10 +179,15 @@ public class bone : MonoBehaviour
 
 
     }
+    //get damage.
+    public void be_hit(float hurt)
+    {
+        this.health -= hurt;
+    }
 
-   
+
     #region     
-   
+
     public void attack_start()
     {
         
