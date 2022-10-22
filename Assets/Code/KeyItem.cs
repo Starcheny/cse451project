@@ -6,7 +6,7 @@ public class KeyItem : MonoBehaviour
 {
   void OnTriggerEnter(Collider collider){
     if (collider.gameObject.name == "PlayerCapsule"){
-        GameVariables.KeyCount +=2;
+        GameVariables.KeyCount +=1;
         Destroy(gameObject);
     }
   }
