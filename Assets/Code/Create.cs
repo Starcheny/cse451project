@@ -25,7 +25,8 @@ public class Create : MonoBehaviour
    }
 
    void Update() {
-    if(time < 27)
+    // if(time < 27)
+    if(time < 120)
             {
                 time += Time.deltaTime;
             } else
