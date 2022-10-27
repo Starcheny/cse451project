@@ -16,6 +16,9 @@ public class raser : MonoBehaviour
     [SerializeField] private float maxDist;
     private float time = 0f;
     private GameObject game_player;
+
+
+    public float health;
     void Start()
     {
         dist = 0.5f;
@@ -31,9 +34,17 @@ public class raser : MonoBehaviour
         
     }
 
-
+    public void be_hit(float hurt)
+    {
+        this.health -= hurt;
+    }
     private void FixedUpdate()
     {
+        if (this.health <= 0)
+        {
+            this.game_player.GetComponent<player_health>().number_of_bullet += 5;
+            Destroy(this.gameObject);
+        }
         time += 1*Time.deltaTime;
         if (time >=1f)
         {

@@ -51,7 +51,7 @@ public class bone : MonoBehaviour
         this.home = GameObject.FindGameObjectsWithTag("Home")[0];
 
 
-        this.health = 7;
+        this.health = 100;
 
         this.enemy_statu = 0;
 
@@ -65,57 +65,62 @@ public class bone : MonoBehaviour
     void Update()
     {
 
-        if (this.health == 0)
+        if (this.health <= 0)
         {
-
             this.nav.isStopped = true;
+            this.game_player.GetComponent<player_health>().number_of_bullet += 5;
             Destroy(this.gameObject);
-        }
-        if(Vector3.Distance(this.transform.position, this.home.transform.position) < this.check_range)
-        {
-           
-            if (Vector3.Distance(this.transform.position, this.home.transform.position) < this.target_range)
-            {
-                    
-                change_to_attackhome();
-                this.is_around_the_player = true;
-            }
-            this.nav.SetDestination(this.home.transform.position);
+            
         }
         else
         {
-            if (this.is_around_the_player == false)
+            if (Vector3.Distance(this.transform.position, this.home.transform.position) < this.check_range)
             {
-                if (this.enemy_statu == 0)
+
+                if (Vector3.Distance(this.transform.position, this.home.transform.position) < this.target_range)
                 {
-                    if (Vector3.Distance(this.transform.position, this.game_player.transform.position) < this.target_range)
-                    {
-                        this.change_to_attack();
-                        this.is_around_the_player = true;
-                    }
 
-
-                    this.nav.SetDestination(this.game_player.transform.position);
+                    change_to_attackhome();
+                    this.is_around_the_player = true;
                 }
-
-
+                this.nav.SetDestination(this.home.transform.position);
             }
             else
             {
-
-                if (this.enemy_statu == 1)
+                if (this.is_around_the_player == false)
                 {
-                    if (Vector3.Distance(this.transform.position, this.game_player.transform.position) >= this.target_range)
+                    if (this.enemy_statu == 0)
                     {
-                        this.change_to_running();
-                        this.is_around_the_player = false;
+                        if (Vector3.Distance(this.transform.position, this.game_player.transform.position) < this.target_range)
+                        {
+                            this.change_to_attack();
+                            this.is_around_the_player = true;
+                        }
+
+
+                        this.nav.SetDestination(this.game_player.transform.position);
                     }
 
 
-                    this.transform.LookAt(new Vector3(this.game_player.transform.position.x, 0, this.game_player.transform.position.z));
+                }
+                else
+                {
+
+                    if (this.enemy_statu == 1)
+                    {
+                        if (Vector3.Distance(this.transform.position, this.game_player.transform.position) >= this.target_range)
+                        {
+                            this.change_to_running();
+                            this.is_around_the_player = false;
+                        }
+
+
+                        this.transform.LookAt(new Vector3(this.game_player.transform.position.x, 0, this.game_player.transform.position.z));
+                    }
                 }
             }
         }
+        
         
     }
 

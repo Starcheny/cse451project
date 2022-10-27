@@ -10,10 +10,36 @@ namespace OpenDoor {
         // State Tracking
         public List<int> keyIdsObtained;
 
+
+
+        public Transform povOrigin;
+        public Transform projectileOrigin;
+        public GameObject projectfilePrefab;
+        public float attackRange;
+
+
+        
+
+
+
+
         //Methods
         void Awake(){
             instance = this;
             keyIdsObtained = new List<int>();
+            
+        }
+
+        void OnSecondaryAttack()
+        {
+            if (this.gameObject.GetComponent<player_health>().number_of_bullet > 0)
+            {
+                GameObject projectile = Instantiate(projectfilePrefab, projectileOrigin.position, Quaternion.LookRotation(povOrigin.forward));
+                projectile.transform.localScale = Vector3.one * 5f;
+                projectile.GetComponent<Rigidbody>().AddForce(povOrigin.forward * 50f, ForceMode.Impulse);
+                this.gameObject.GetComponent<player_health>().number_of_bullet -= 1;
+            }
+            
         }
 
         void Update() {
@@ -40,7 +66,18 @@ namespace OpenDoor {
                     }
                 }
 
+
+
             }
+
+            if (mouseInput.leftButton.wasPressedThisFrame)
+            {
+                OnSecondaryAttack();
+            }
+
+
+
+
         }
 }
 }
