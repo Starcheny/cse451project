@@ -16,8 +16,8 @@ public class home : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        health = 100f;
-        max_health = 100f;
+        health = 5000f;
+        max_health = 5000f;
 
     }
 
