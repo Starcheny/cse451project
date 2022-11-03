@@ -18,14 +18,12 @@ namespace OpenDoor {
         public Transform projectileOrigin;
         public GameObject projectfilePrefab;
         public float attackRange;
-
         public Text armor;
 
         //Methods
         void Awake(){
             instance = this;
             keyIdsObtained = new List<int>();
-            
         }
 
         void OnSecondaryAttack()

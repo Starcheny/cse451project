@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-
 public class player_health : MonoBehaviour
 {
 
@@ -12,7 +11,6 @@ public class player_health : MonoBehaviour
    
     float hp_percent;
     public Image hp_image;
-
 
     public int cur_bullet;
     public int number_of_bullet;

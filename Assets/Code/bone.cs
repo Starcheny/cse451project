@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class bone : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class bone : MonoBehaviour
 
     [Header(" Automatic path finding controller")]
     public NavMeshAgent nav;
+
+    private Text armor;
 
 
     //is it around the player
@@ -59,6 +62,8 @@ public class bone : MonoBehaviour
 
         //this.nav.SetDestination(this.game_player.transform.position);
 
+        this.armor = GameObject.FindGameObjectWithTag("armor").GetComponent<Text>();
+
     }
 
     // Update is called once per frame
@@ -69,6 +74,8 @@ public class bone : MonoBehaviour
         {
             this.nav.isStopped = true;
             this.game_player.GetComponent<player_health>().number_of_bullet += 5;
+            armor.text = this.game_player.gameObject.GetComponent<player_health>().cur_bullet + "/" + this.game_player.gameObject.GetComponent<player_health>().number_of_bullet;
+
             Destroy(this.gameObject);
             
         }

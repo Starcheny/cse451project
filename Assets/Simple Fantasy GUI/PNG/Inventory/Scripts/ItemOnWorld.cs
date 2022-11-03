@@ -1,11 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ItemOnWorld : MonoBehaviour
 {
     public Item thisItem;
     public Inventory playerInventory;
+    private Text armor;
+    private GameObject game_player;
+
+
+    private void Start()
+    {
+        this.game_player = GameObject.FindGameObjectWithTag("Player");
+        this.armor = GameObject.FindGameObjectWithTag("armor").GetComponent<Text>();
+    }
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -36,10 +46,12 @@ public class ItemOnWorld : MonoBehaviour
     {
         if (!playerInventory.itemList.Contains(thisItem))
         {
+            
             playerInventory.itemList.Add(thisItem);
         }
         else
         {
+            
             thisItem.itemHeld += 1;
         }
     }

@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class raser : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -16,7 +16,7 @@ public class raser : MonoBehaviour
     [SerializeField] private float maxDist;
     private float time = 0f;
     private GameObject game_player;
-
+    private Text armor;
 
     public float health;
     void Start()
@@ -25,6 +25,7 @@ public class raser : MonoBehaviour
         _lineRenderer = GetComponentInChildren<LineRenderer>();
         //find the player
         this.game_player = GameObject.FindGameObjectWithTag("Player");
+        this.armor = GameObject.FindGameObjectWithTag("armor").GetComponent<Text>();
 
     }
 
@@ -43,6 +44,7 @@ public class raser : MonoBehaviour
         if (this.health <= 0)
         {
             this.game_player.GetComponent<player_health>().number_of_bullet += 5;
+            armor.text = this.game_player.gameObject.GetComponent<player_health>().cur_bullet + "/" + this.game_player.gameObject.GetComponent<player_health>().number_of_bullet;
             Destroy(this.gameObject);
         }
         time += 1*Time.deltaTime;
@@ -65,6 +67,7 @@ public class raser : MonoBehaviour
         _lineRenderer.SetPosition(0, firePoint.position);
         if (Physics.Raycast(firePoint.position, transform.right, out hitInfo,dist))
         {
+            print("1");
             Debug.DrawLine(firePoint.position, hitInfo.point, Color.green);
             //Debug.DrawRay(firePoint.position, Vector3.right * hitInfo.distance, Color.yellow);
             
@@ -101,6 +104,7 @@ public class raser : MonoBehaviour
         {
             //Debug.DrawLine(firePoint.position, new Vector3(firePoint.position.x+dist, firePoint.position.y, firePoint.position.z), Color.red);
             //Debug.Log("Did not Hit");
+
             float temp = dist;
             _lineRenderer.SetPosition(1,
                new Vector3(firePoint.position.x + dist, firePoint.position.y, firePoint.position.z));
