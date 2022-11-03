@@ -13,8 +13,7 @@ public class ItemOnWorld : MonoBehaviour
 
     private void Start()
     {
-        this.game_player = GameObject.FindGameObjectWithTag("Player");
-        this.armor = GameObject.FindGameObjectWithTag("armor").GetComponent<Text>();
+        this.game_player = GameObject.FindGameObjectWithTag("Player");    
     }
 
     private void OnCollisionEnter(Collision collision)

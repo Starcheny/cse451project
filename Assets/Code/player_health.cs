@@ -14,14 +14,16 @@ public class player_health : MonoBehaviour
 
     public int cur_bullet;
     public int number_of_bullet;
+    public bool has_pistol;
 
     // Start is called before the first frame update
     void Start()
     {
         health = 100f;
         max_health = 100f;
+        has_pistol = false;
 
-    }
+}
 
     // Update is called once per frame
     void Update()

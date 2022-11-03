@@ -13,7 +13,7 @@ namespace OpenDoor {
         public List<int> keyIdsObtained;
 
 
-
+        private bool has_pistol;
         public Transform povOrigin;
         public Transform projectileOrigin;
         public GameObject projectfilePrefab;
@@ -28,14 +28,19 @@ namespace OpenDoor {
 
         void OnSecondaryAttack()
         {
-            if (this.gameObject.GetComponent<player_health>().cur_bullet > 0)
+            
+            if (this.gameObject.GetComponent<player_health>().has_pistol)
             {
-                GameObject projectile = Instantiate(projectfilePrefab, projectileOrigin.position, Quaternion.LookRotation(povOrigin.forward));
-                projectile.transform.localScale = Vector3.one * 5f;
-                projectile.GetComponent<Rigidbody>().AddForce(povOrigin.forward * 50f, ForceMode.Impulse);
-                this.gameObject.GetComponent<player_health>().cur_bullet -= 1;
-                armor.text = this.gameObject.GetComponent<player_health>().cur_bullet + "/" + this.gameObject.GetComponent<player_health>().number_of_bullet;
+                if (this.gameObject.GetComponent<player_health>().cur_bullet > 0)
+                {
+                    GameObject projectile = Instantiate(projectfilePrefab, projectileOrigin.position, Quaternion.LookRotation(povOrigin.forward));
+                    projectile.transform.localScale = Vector3.one * 5f;
+                    projectile.GetComponent<Rigidbody>().AddForce(povOrigin.forward * 50f, ForceMode.Impulse);
+                    this.gameObject.GetComponent<player_health>().cur_bullet -= 1;
+                    armor.text = this.gameObject.GetComponent<player_health>().cur_bullet + "/" + this.gameObject.GetComponent<player_health>().number_of_bullet;
+                }
             }
+            
         }
 
         void Update() {

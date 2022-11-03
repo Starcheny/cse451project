@@ -62,7 +62,7 @@ public class bone : MonoBehaviour
 
         //this.nav.SetDestination(this.game_player.transform.position);
 
-        this.armor = GameObject.FindGameObjectWithTag("armor").GetComponent<Text>();
+        //this.armor = GameObject.FindGameObjectWithTag("armor").GetComponent<Text>();
 
     }
 
@@ -74,8 +74,12 @@ public class bone : MonoBehaviour
         {
             this.nav.isStopped = true;
             this.game_player.GetComponent<player_health>().number_of_bullet += 5;
-            armor.text = this.game_player.gameObject.GetComponent<player_health>().cur_bullet + "/" + this.game_player.gameObject.GetComponent<player_health>().number_of_bullet;
+            if (game_player.GetComponent<player_health>().has_pistol)
+            {
+                this.armor = GameObject.FindGameObjectWithTag("armor").GetComponent<Text>();
+                armor.text = this.game_player.gameObject.GetComponent<player_health>().cur_bullet + "/" + this.game_player.gameObject.GetComponent<player_health>().number_of_bullet;
 
+            }
             Destroy(this.gameObject);
             
         }

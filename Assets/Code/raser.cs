@@ -25,7 +25,7 @@ public class raser : MonoBehaviour
         _lineRenderer = GetComponentInChildren<LineRenderer>();
         //find the player
         this.game_player = GameObject.FindGameObjectWithTag("Player");
-        this.armor = GameObject.FindGameObjectWithTag("armor").GetComponent<Text>();
+        
 
     }
 
@@ -44,7 +44,12 @@ public class raser : MonoBehaviour
         if (this.health <= 0)
         {
             this.game_player.GetComponent<player_health>().number_of_bullet += 5;
-            armor.text = this.game_player.gameObject.GetComponent<player_health>().cur_bullet + "/" + this.game_player.gameObject.GetComponent<player_health>().number_of_bullet;
+            if (game_player.GetComponent<player_health>().has_pistol)
+            {
+                this.armor = GameObject.FindGameObjectWithTag("armor").GetComponent<Text>();
+                armor.text = this.game_player.gameObject.GetComponent<player_health>().cur_bullet + "/" + this.game_player.gameObject.GetComponent<player_health>().number_of_bullet;
+
+            }
             Destroy(this.gameObject);
         }
         time += 1*Time.deltaTime;
@@ -89,16 +94,7 @@ public class raser : MonoBehaviour
                 this.game_player.GetComponent<player_health>().be_hit(attackDamage);
             }
 
-            else if (hitInfo.collider.CompareTag("Mobs"))
-            {
-                Debug.DrawLine(firePoint.position, hitInfo.point, Color.red);
-                Debug.Log("Did Hit");
-                _lineRenderer.SetPosition(1, hitInfo.point);
-                _lineRenderer.colorGradient = redColor;
-                // cur off health;
-
-                //this.game_player.GetComponent<player_health>().be_hit(attackDamage);
-            }
+            
         }
         else
         {
