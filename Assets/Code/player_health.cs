@@ -13,6 +13,8 @@ public class player_health : MonoBehaviour
     float hp_percent;
     public Image hp_image;
 
+
+    public int cur_bullet;
     public int number_of_bullet;
 
     // Start is called before the first frame update

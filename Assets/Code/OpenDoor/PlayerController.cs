@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using TMPro;
 
 namespace OpenDoor {
     public class PlayerController : MonoBehaviour
@@ -17,11 +19,7 @@ namespace OpenDoor {
         public GameObject projectfilePrefab;
         public float attackRange;
 
-
-        
-
-
-
+        public Text armor;
 
         //Methods
         void Awake(){
@@ -32,14 +30,14 @@ namespace OpenDoor {
 
         void OnSecondaryAttack()
         {
-            if (this.gameObject.GetComponent<player_health>().number_of_bullet > 0)
+            if (this.gameObject.GetComponent<player_health>().cur_bullet > 0)
             {
                 GameObject projectile = Instantiate(projectfilePrefab, projectileOrigin.position, Quaternion.LookRotation(povOrigin.forward));
                 projectile.transform.localScale = Vector3.one * 5f;
                 projectile.GetComponent<Rigidbody>().AddForce(povOrigin.forward * 50f, ForceMode.Impulse);
-                this.gameObject.GetComponent<player_health>().number_of_bullet -= 1;
+                this.gameObject.GetComponent<player_health>().cur_bullet -= 1;
+                armor.text = this.gameObject.GetComponent<player_health>().cur_bullet + "/" + this.gameObject.GetComponent<player_health>().number_of_bullet;
             }
-            
         }
 
         void Update() {
@@ -65,14 +63,33 @@ namespace OpenDoor {
                     
                     }
                 }
-
-
-
             }
 
             if (mouseInput.leftButton.wasPressedThisFrame)
             {
                 OnSecondaryAttack();
+            }
+
+            if (keyboardInput.rKey.wasPressedThisFrame)
+            {
+
+                if (this.gameObject.GetComponent<player_health>().cur_bullet < 10)
+                {
+                    int diff = 10 - this.gameObject.GetComponent<player_health>().cur_bullet;
+                    if (this.gameObject.GetComponent<player_health>().number_of_bullet > diff)
+                    {
+                        this.gameObject.GetComponent<player_health>().number_of_bullet -= diff;
+                        this.gameObject.GetComponent<player_health>().cur_bullet += diff;
+                        
+                        armor.text = this.gameObject.GetComponent<player_health>().cur_bullet + "/" + this.gameObject.GetComponent<player_health>().number_of_bullet;
+                    }
+                    else
+                    {
+                        this.gameObject.GetComponent<player_health>().cur_bullet += this.gameObject.GetComponent<player_health>().number_of_bullet;
+                        this.gameObject.GetComponent<player_health>().number_of_bullet = 0;
+                        armor.text = this.gameObject.GetComponent<player_health>().cur_bullet + "/" + this.gameObject.GetComponent<player_health>().number_of_bullet;
+                    }
+                }
             }
 
 
