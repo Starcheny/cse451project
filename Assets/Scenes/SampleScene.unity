@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17276844, g: 0.21589246, b: 0.2978263, a: 1}
+  m_IndirectSpecularColor: {r: 0.17283328, g: 0.2159634, b: 0.29792222, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -21804,19 +21804,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6bfc2a70925a5c4cb9a5a7825052f5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_WaterMode: 2
-  m_DisablePixelLights: 1
-  m_TextureSize: 256
-  m_ClipPlaneOffset: 0.07
-  m_ReflectLayers:
-    m_Bits: 4294967295
-  m_RefractLayers:
-    m_Bits: 4294967295
-  m_ReflectionTexture: {fileID: 0}
-  m_RefractionTexture: {fileID: 0}
-  m_HardwareWaterSupport: 2
-  m_OldReflectionTextureSize: 256
-  m_OldRefractionTextureSize: 256
 --- !u!1 &1117622393
 GameObject:
   m_ObjectHideFlags: 0
@@ -28655,7 +28642,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1396336546}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 100, y: 4.01, z: 162.17}
+  m_LocalPosition: {x: 98.9, y: 4.01, z: 162.17}
   m_LocalScale: {x: 20, y: 20, z: 20}
   m_ConstrainProportionsScale: 0
   m_Children: []
