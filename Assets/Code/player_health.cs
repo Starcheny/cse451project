@@ -22,8 +22,11 @@ public class player_health : MonoBehaviour
         health = 100f;
         max_health = 100f;
         has_pistol = false;
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = false;
 
-}
+
+    }
 
     // Update is called once per frame
     void Update()
