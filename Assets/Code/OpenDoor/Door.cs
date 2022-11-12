@@ -37,7 +37,7 @@ namespace OpenDoor {
 
 
         if(shoudOpen) {
-                animator.SetTrigger("Open");
+                animator.SetTrigger("open");
             }
 }
 
