@@ -11,7 +11,7 @@ public class player_health : MonoBehaviour
    
     float hp_percent;
     public Image hp_image;
-
+    public Image hp_image2;
     public int cur_bullet;
     public int number_of_bullet;
     public bool has_pistol;
@@ -39,7 +39,11 @@ public class player_health : MonoBehaviour
 
         hp_image.fillAmount = hp_percent;
 
-        
+        hp_image.transform.position = new Vector3(Screen.width * 1 / 10, Screen.height * 19 / 20);
+        hp_image2.transform.position = new Vector3(Screen.width*1/10, Screen.height * 19 / 20);
+
+        hp_image.rectTransform.sizeDelta = new Vector2(Screen.width * 1 / 25, Screen.height * 1 / 90);
+        hp_image2.rectTransform.sizeDelta = new Vector2(Screen.width * 1 / 25, Screen.height * 1 / 90);
 
     }
 

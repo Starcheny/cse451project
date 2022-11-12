@@ -9,16 +9,16 @@ public class home : MonoBehaviour
 {
     // Start is called before the first frame update
     public float health;
-    private float max_health;
+    public float max_health;
 
     float hp_percent;
     public Image hp_image;
+    public Image hp_image2;
 
     // Start is called before the first frame update
     void Start()
     {
-        health = 5000f;
-        max_health = 5000f;
+        
 
     }
 
@@ -33,6 +33,12 @@ public class home : MonoBehaviour
 
         hp_image.fillAmount = hp_percent;
 
+
+        hp_image.transform.position = new Vector3(Screen.width * 1 / 10, Screen.height * 9/10);
+        hp_image2.transform.position = new Vector3(Screen.width * 1 / 10, Screen.height * 9 / 10);
+
+        hp_image.rectTransform.sizeDelta = new Vector2(Screen.width * 1 / 25, Screen.height * 1 / 90);
+        hp_image2.rectTransform.sizeDelta = new Vector2(Screen.width * 1 / 25, Screen.height * 1 / 90);
 
 
     }
