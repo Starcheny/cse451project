@@ -20,7 +20,9 @@ public class Create : MonoBehaviour
         if(stopspawn) {
             CancelInvoke("SpawnObj");
         }else{
-            Instantiate(obj,new Vector3(Random.Range(-2,-4),0,Random.Range(10,15)),Quaternion.identity);
+
+            Instantiate(obj,new Vector3(Random.Range(-20,-13),Random.Range(4,8), Random.Range(-120, -90)),Quaternion.identity);
+            
         }
    }
 

@@ -32,7 +32,7 @@ public class KeyItem : MonoBehaviour
   }
 
   void Update(){
-    Debug.Log("before"+Action +"!"); 
+    //Debug.Log("before"+Action +"!"); 
 
     if(Input.GetKeyDown(KeyCode.E) && Action == true){
       Debug.Log("after"+Action +"!"); 

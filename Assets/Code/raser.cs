@@ -72,7 +72,7 @@ public class raser : MonoBehaviour
         _lineRenderer.SetPosition(0, firePoint.position);
         if (Physics.Raycast(firePoint.position, transform.right, out hitInfo,dist))
         {
-            print("1");
+            
             Debug.DrawLine(firePoint.position, hitInfo.point, Color.green);
             //Debug.DrawRay(firePoint.position, Vector3.right * hitInfo.distance, Color.yellow);
             
