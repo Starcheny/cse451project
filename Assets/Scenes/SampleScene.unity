@@ -29902,7 +29902,7 @@ MonoBehaviour:
   obj: {fileID: 5585912406093623250, guid: 6c1a2bb23e645ee40bdf1a33bce1a2dd, type: 3}
   stopspawn: 0
   spawnDelay: 10
-  spawnTime: 1
+  spawnTime: 20
   time: 0
 --- !u!4 &1509149412
 Transform:
