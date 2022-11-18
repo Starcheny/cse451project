@@ -2916,9 +2916,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3359226208132549702}
   - component: {fileID: 3359226208125100966}
-  - component: {fileID: 5358799003497184874}
   - component: {fileID: 6391415713297891567}
   - component: {fileID: 108704569}
+  - component: {fileID: 8014958354366042711}
   m_Layer: 0
   m_Name: broken_enemy_ax
   m_TagString: Untagged
@@ -3022,19 +3022,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &5358799003497184874
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3359226208132517990}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adebaae8c7f61564abaf1515467cd04e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  move_direction: {x: 0, y: 0, z: 0}
 --- !u!82 &6391415713297891567
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3147,6 +3134,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 36
   m_CollisionDetection: 0
+--- !u!114 &8014958354366042711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3359226208132517990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3252bc194178b4a419d8df4bea1a013b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3359226208132517992
 GameObject:
   m_ObjectHideFlags: 0

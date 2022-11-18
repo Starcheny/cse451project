@@ -46,6 +46,7 @@ public class bone2 : MonoBehaviour
 
 
     int patrolIndex;
+    public GameObject obj;
 
     // Start is called before the first frame update
     void Start()
@@ -88,6 +89,7 @@ public class bone2 : MonoBehaviour
                 armor.text = this.game_player.gameObject.GetComponent<player_health>().cur_bullet + "/" + this.game_player.gameObject.GetComponent<player_health>().number_of_bullet;
 
             }
+            Instantiate(obj, this.transform.position, Quaternion.identity);
             Destroy(this.gameObject);
             return;
 

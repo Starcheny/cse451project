@@ -4,12 +4,12 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
 
-public class bone : MonoBehaviour
+public class split : MonoBehaviour
 {
 
 
     //health
-    private float health;
+    public float health;
 
     //animator
     private Animator animator;
@@ -38,8 +38,16 @@ public class bone : MonoBehaviour
 
     public float check_range;
     private int enemy_statu;
-    private GameObject create;
+
+
+    public Transform patrolRoute;
+
+    public Transform target;
+
+
+    int patrolIndex;
     public GameObject obj;
+    public GameObject obj2;
 
     // Start is called before the first frame update
     void Start()
@@ -52,9 +60,9 @@ public class bone : MonoBehaviour
 
         //find the player
         this.game_player = GameObject.FindGameObjectWithTag("Player");
-        
+
         this.home = GameObject.FindGameObjectsWithTag("Home")[0];
-        this.create = GameObject.FindGameObjectWithTag("create");
+
 
         this.health = 100;
 
@@ -63,6 +71,10 @@ public class bone : MonoBehaviour
         this.change_to_running();
 
         
+        //this.nav.SetDestination(this.game_player.transform.position);
+
+        //this.armor = GameObject.FindGameObjectWithTag("armor").GetComponent<Text>();
+
     }
 
     // Update is called once per frame
@@ -79,65 +91,78 @@ public class bone : MonoBehaviour
                 armor.text = this.game_player.gameObject.GetComponent<player_health>().cur_bullet + "/" + this.game_player.gameObject.GetComponent<player_health>().number_of_bullet;
 
             }
-            this.create.GetComponent<Create>().cur_num -= 1;
+            Instantiate(obj2, this.transform.position, Quaternion.identity);
+            Instantiate(obj, this.transform.position, Quaternion.identity);
             Instantiate(obj, this.transform.position, Quaternion.identity);
             Destroy(this.gameObject);
             return;
-            
+
         }
-        else
+
+        if (patrolRoute)
         {
-            if (Vector3.Distance(this.transform.position, this.home.transform.position) < this.check_range)
+            target = patrolRoute.GetChild(patrolIndex);
+
+            float distance = Vector3.Distance(transform.position, target.position);
+            //print("Distance: " + distance);
+
+
+            if (distance <= 2f)
             {
-
-                if (Vector3.Distance(this.transform.position, this.home.transform.position) < this.target_range)
+                patrolIndex++;
+                if (patrolIndex >= patrolRoute.childCount)
                 {
-
-                    change_to_attackhome();
-                    this.is_around_the_player = true;
+                    patrolIndex = 0;
                 }
-                this.nav.SetDestination(this.home.transform.position);
+            }
+
+            this.nav.SetDestination(this.target.transform.position);
+        }
+
+
+
+        if (Vector3.Distance(this.transform.position, this.game_player.transform.position) < this.check_range)
+        {
+
+            if (this.is_around_the_player == false)
+            {
+                if (this.enemy_statu == 0)
+                {
+                    if (Vector3.Distance(this.transform.position, this.game_player.transform.position) < this.target_range)
+                    {
+                        this.change_to_attack();
+                        this.is_around_the_player = true;
+                    }
+
+
+                    this.nav.SetDestination(this.game_player.transform.position);
+                }
+
+
             }
             else
             {
-                if (this.is_around_the_player == false)
+
+                if (this.enemy_statu == 1)
                 {
-                    if (this.enemy_statu == 0)
+                    if (Vector3.Distance(this.transform.position, this.game_player.transform.position) >= this.target_range)
                     {
-                        if (Vector3.Distance(this.transform.position, this.game_player.transform.position) < this.target_range)
-                        {
-                            this.change_to_attack();
-                            this.is_around_the_player = true;
-                        }
-
-
-                        this.nav.SetDestination(this.game_player.transform.position);
+                        this.change_to_running();
+                        this.is_around_the_player = false;
                     }
 
 
+                    this.transform.LookAt(new Vector3(this.game_player.transform.position.x, 0, this.game_player.transform.position.z));
                 }
-                else
-                {
 
-                    if (this.enemy_statu == 1)
-                    {
-                        if (Vector3.Distance(this.transform.position, this.game_player.transform.position) >= this.target_range)
-                        {
-                            this.change_to_running();
-                            this.is_around_the_player = false;
-                        }
-
-
-                        this.transform.LookAt(new Vector3(this.game_player.transform.position.x, 0, this.game_player.transform.position.z));
-                    }
-                }
             }
         }
-        
-        
+
+
+
     }
 
-    
+
 
     public void change_to_attack()
     {
@@ -156,7 +181,7 @@ public class bone : MonoBehaviour
         //Modify status
         this.enemy_statu = 1;
 
-        
+
     }
 
     public void change_to_attackhome()
@@ -175,7 +200,7 @@ public class bone : MonoBehaviour
 
         //Modify status
         this.enemy_statu = 1;
-        
+
 
 
     }
@@ -208,7 +233,7 @@ public class bone : MonoBehaviour
 
     public void attack_start()
     {
-        
+
         if (Vector3.Distance(this.transform.position, this.game_player.transform.position) < this.target_range)
         {
             this.audio_source.Play();

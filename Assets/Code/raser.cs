@@ -17,6 +17,7 @@ public class raser : MonoBehaviour
     private float time = 0f;
     private GameObject game_player;
     private Text armor;
+    public GameObject obj;
 
     public float health;
     void Start()
@@ -50,6 +51,7 @@ public class raser : MonoBehaviour
                 armor.text = this.game_player.gameObject.GetComponent<player_health>().cur_bullet + "/" + this.game_player.gameObject.GetComponent<player_health>().number_of_bullet;
 
             }
+            Instantiate(obj, this.transform.position, Quaternion.identity);
             Destroy(this.gameObject);
         }
         time += 1*Time.deltaTime;

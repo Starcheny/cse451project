@@ -2232,6 +2232,7 @@ MonoBehaviour:
   nav: {fileID: 5585912406093719926}
   target_range: 15
   check_range: 50
+  obj: {fileID: 3359226208132517990, guid: 3b8d745e77f6a344290deb3e910d1458, type: 3}
 --- !u!64 &-6538793202008433389
 MeshCollider:
   m_ObjectHideFlags: 0

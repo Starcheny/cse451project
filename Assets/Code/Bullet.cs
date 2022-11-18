@@ -44,6 +44,14 @@ public class Bullet : MonoBehaviour
 
         }
 
+        else if (collision.gameObject.tag == "enemy4")
+        {
+
+            collision.gameObject.GetComponent<split>().be_hit(attackDamage);
+            Destroy(this.gameObject);
+
+        }
+
         else
         {
             Destroy(this.gameObject);
