@@ -20,7 +20,7 @@ public class over : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("enter");
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(3);
     }
 
 }

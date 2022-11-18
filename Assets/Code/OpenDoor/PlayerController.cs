@@ -20,6 +20,11 @@ namespace OpenDoor {
         public float attackRange;
         public Text armor;
 
+        public AudioSource gunPlayer;
+        public AudioSource gunreload;
+
+
+
         //Methods
         void Awake(){
             instance = this;
@@ -38,6 +43,7 @@ namespace OpenDoor {
                     projectile.GetComponent<Rigidbody>().AddForce(povOrigin.forward * 50f, ForceMode.Impulse);
                     this.gameObject.GetComponent<player_health>().cur_bullet -= 1;
                     armor.text = this.gameObject.GetComponent<player_health>().cur_bullet + "/" + this.gameObject.GetComponent<player_health>().number_of_bullet;
+                    gunPlayer.Play();
                 }
             }
             
@@ -71,6 +77,7 @@ namespace OpenDoor {
             if (mouseInput.leftButton.wasPressedThisFrame)
             {
                 OnSecondaryAttack();
+                // gunPlayer.PlayOneShot(clip);
             }
 
             if (keyboardInput.rKey.wasPressedThisFrame)
@@ -79,6 +86,7 @@ namespace OpenDoor {
                 if (this.gameObject.GetComponent<player_health>().cur_bullet < 10)
                 {
                     int diff = 10 - this.gameObject.GetComponent<player_health>().cur_bullet;
+                    gunreload.Play();
                     if (this.gameObject.GetComponent<player_health>().number_of_bullet > diff)
                     {
                         this.gameObject.GetComponent<player_health>().number_of_bullet -= diff;
