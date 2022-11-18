@@ -8,6 +8,7 @@ public class KeyItem : MonoBehaviour
   public GameObject Instruction;
   public GameObject ThisTrigger;
   public GameObject Obj;
+  public AudioSource pick;
   
   public bool Action =false;
 
@@ -39,6 +40,7 @@ public class KeyItem : MonoBehaviour
 
       //if(Action = true){
         GameVariables.KeyCount +=1;
+        pick.Play();
         //Obj.SetActive(false);
         Destroy(Obj);
         Instruction.SetActive(false);

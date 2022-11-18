@@ -7,6 +7,7 @@ namespace OpenDoor {
 {
    // Configuration
    public int id;
+   public AudioSource pick;
 
    // Methods
    void OnTriggerEnter(Collider other) {
@@ -14,6 +15,7 @@ namespace OpenDoor {
     if(targetPlayer != null){
         targetPlayer.keyIdsObtained.Add(id);
         Destroy(gameObject);
+        pick.Play();
     }
    } 
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace OpenDoor {
    public class Door : MonoBehaviour
+   
 {
      //Outlets
     Animator animator;
@@ -11,6 +12,7 @@ namespace OpenDoor {
     //Configuration
         public GameObject requiredSender;
         public int keyIdRequired = -1;// default -1 means no key required.
+        public AudioSource opendoor;
 
     //Methods
     void Awake() {
@@ -38,6 +40,7 @@ namespace OpenDoor {
 
         if(shoudOpen) {
                 animator.SetTrigger("open");
+                opendoor.Play();
             }
 }
 
