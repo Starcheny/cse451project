@@ -38,6 +38,8 @@ public class bone : MonoBehaviour
 
     public float check_range;
     private int enemy_statu;
+    private GameObject create;
+
 
     // Start is called before the first frame update
     void Start()
@@ -50,9 +52,9 @@ public class bone : MonoBehaviour
 
         //find the player
         this.game_player = GameObject.FindGameObjectWithTag("Player");
-
+        
         this.home = GameObject.FindGameObjectsWithTag("Home")[0];
-
+        this.create = GameObject.FindGameObjectWithTag("create");
 
         this.health = 100;
 
@@ -60,16 +62,13 @@ public class bone : MonoBehaviour
 
         this.change_to_running();
 
-        //this.nav.SetDestination(this.game_player.transform.position);
-
-        //this.armor = GameObject.FindGameObjectWithTag("armor").GetComponent<Text>();
-
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        
         if (this.health <= 0)
         {
             this.nav.isStopped = true;
@@ -80,7 +79,9 @@ public class bone : MonoBehaviour
                 armor.text = this.game_player.gameObject.GetComponent<player_health>().cur_bullet + "/" + this.game_player.gameObject.GetComponent<player_health>().number_of_bullet;
 
             }
+            this.create.GetComponent<Create>().cur_num -= 1;
             Destroy(this.gameObject);
+            return;
             
         }
         else

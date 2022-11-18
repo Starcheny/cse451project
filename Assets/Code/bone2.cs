@@ -9,7 +9,7 @@ public class bone2 : MonoBehaviour
 
 
     //health
-    private float health;
+    public float health;
 
     //animator
     private Animator animator;
@@ -89,6 +89,7 @@ public class bone2 : MonoBehaviour
 
             }
             Destroy(this.gameObject);
+            return;
 
         }
 

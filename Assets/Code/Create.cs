@@ -9,6 +9,8 @@ public class Create : MonoBehaviour
    public float spawnDelay;
    public float spawnTime;
    public float time = 0;
+
+    public int cur_num = 0;
    void Start(){
     // if(时间夜晚)
     InvokeRepeating("SpawnObj",spawnTime,spawnDelay);
@@ -20,8 +22,12 @@ public class Create : MonoBehaviour
         if(stopspawn) {
             CancelInvoke("SpawnObj");
         }else{
-
-            Instantiate(obj,new Vector3(Random.Range(-20,-13),Random.Range(4,8), Random.Range(-120, -90)),Quaternion.identity);
+            if (cur_num < 4)
+            {
+                Instantiate(obj, new Vector3(Random.Range(-20, -13), Random.Range(4, 8), Random.Range(-120, -90)), Quaternion.identity);
+                cur_num += 1;
+            }
+            
             
         }
    }
@@ -41,4 +47,9 @@ public class Create : MonoBehaviour
             // }
 
    }
+
+   public void delete()
+    {
+        cur_num -= 1;
+    }
 }
