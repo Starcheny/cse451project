@@ -8,6 +8,7 @@ public class NPC : MonoBehaviour {
 
     public Transform ChatBackGround;
     public Transform NPCCharacter;
+    //public GameObject Instruction;
 
     private DialogueSystem dialogueSystem;
 
@@ -18,6 +19,8 @@ public class NPC : MonoBehaviour {
 
     void Start () {
         dialogueSystem = FindObjectOfType<DialogueSystem>();
+        //Instruction.SetActive(false);
+       
     }
 	
 	void Update () {
@@ -29,9 +32,12 @@ public class NPC : MonoBehaviour {
     public void OnTriggerStay(Collider other)
     {
         this.gameObject.GetComponent<NPC>().enabled = true;
+        //Instruction.SetActive(true);
         FindObjectOfType<DialogueSystem>().EnterRangeOfNPC();
         if ((other.gameObject.tag == "Player") && Input.GetKeyDown(KeyCode.F))
+        //if ((other.gameObject.name == "NPC") && Input.GetKeyDown(KeyCode.F))
         {
+            //Instruction.SetActive(true);
             this.gameObject.GetComponent<NPC>().enabled = true;
             dialogueSystem.Names = Name;
             dialogueSystem.dialogueLines = sentences;
@@ -43,6 +49,7 @@ public class NPC : MonoBehaviour {
     {
         FindObjectOfType<DialogueSystem>().OutOfRange();
         this.gameObject.GetComponent<NPC>().enabled = false;
+        //Instruction.SetActive(false);
     }
 }
 
