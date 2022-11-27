@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using UnityEngine;
 
 [System.Serializable]
-public class NPCs : MonoBehaviour {
+public class NPC : MonoBehaviour {
 
     public Transform ChatBackGround;
     public Transform NPCCharacter;
