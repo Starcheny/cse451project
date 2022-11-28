@@ -54,7 +54,6 @@ public class player_health : MonoBehaviour
 
     public void be_hit(float hurt)
     {
-
         this.health -= hurt;
     }
 }
