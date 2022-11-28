@@ -20,7 +20,7 @@ public class boss : MonoBehaviour
 
     public Transform patrolRoute;
 
-    public Transform target;
+    private Transform target;
 
     int patrolIndex;
 
@@ -47,10 +47,10 @@ public class boss : MonoBehaviour
         this.game_player = GameObject.FindGameObjectWithTag("Player");
 
 
-        this.health = 200;
+        this.health = 2000;
 
 
-        this.max_health = 200f;
+        this.max_health = 2000f;
     }
 
     // Update is called once per frame
@@ -129,8 +129,6 @@ public class boss : MonoBehaviour
     public void be_hit(float harm)
     {
         health -= harm;
-
-        
         
     }
 
@@ -138,16 +136,15 @@ public class boss : MonoBehaviour
 
     void shoot()
     {
-        if (time < 0.5f)
+        if (time < 1.2f)
         {
             time += Time.deltaTime;
         }
         else
         {
             time = 0;
-            GameObject projectile = Instantiate(projectfilePrefab, projectileOrigin.position, Quaternion.LookRotation(povOrigin.forward));
-            projectile.transform.localScale = Vector3.one * 5f;
-            projectile.GetComponent<Rigidbody>().AddForce(povOrigin.forward * 50f, ForceMode.Impulse);
+            GameObject projectile = Instantiate(projectfilePrefab, projectileOrigin.position, Quaternion.LookRotation(povOrigin.forward*-1));
+            
         }
         
     }

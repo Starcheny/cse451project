@@ -52,6 +52,23 @@ public class Bullet : MonoBehaviour
 
         }
 
+
+        else if (collision.gameObject.tag == "missle")
+        {
+
+            Destroy(collision.gameObject);
+            Destroy(this.gameObject);
+
+        }
+
+        else if (collision.gameObject.tag == "boss")
+        {
+
+            collision.gameObject.GetComponent<boss>().be_hit(attackDamage);
+            Destroy(this.gameObject);
+
+        }
+
         else
         {
             Destroy(this.gameObject);
