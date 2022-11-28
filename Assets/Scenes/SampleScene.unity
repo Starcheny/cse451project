@@ -760,6 +760,7 @@ MonoBehaviour:
   attackDamage: 10
   maxDist: 20
   obj: {fileID: 5163217355632077224, guid: 9241408e5744c234fb66bb9c00f557bf, type: 3}
+  reverse: 0
   health: 100
 --- !u!82 &25598479
 AudioSource:
@@ -3043,6 +3044,7 @@ MonoBehaviour:
   attackDamage: 10
   maxDist: 20
   obj: {fileID: 5163217355632077224, guid: 9241408e5744c234fb66bb9c00f557bf, type: 3}
+  reverse: 0
   health: 100
 --- !u!82 &109777070
 AudioSource:
@@ -4954,6 +4956,7 @@ MonoBehaviour:
   attackDamage: 10
   maxDist: 20
   obj: {fileID: 5163217355632077224, guid: 9241408e5744c234fb66bb9c00f557bf, type: 3}
+  reverse: 1
   health: 100
 --- !u!82 &191017917
 AudioSource:
@@ -23068,6 +23071,7 @@ MonoBehaviour:
   attackDamage: 10
   maxDist: 20
   obj: {fileID: 5163217355632077224, guid: 9241408e5744c234fb66bb9c00f557bf, type: 3}
+  reverse: 1
   health: 100
 --- !u!82 &1132950508
 AudioSource:
@@ -30459,8 +30463,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obj: {fileID: 5585912406093623250, guid: 6c1a2bb23e645ee40bdf1a33bce1a2dd, type: 3}
   stopspawn: 0
-  spawnDelay: 10
-  spawnTime: 10
+  spawnDelay: 3
+  spawnTime: 120
   time: 0
   cur_num: 0
   cur_wave: 1
@@ -32738,6 +32742,7 @@ MonoBehaviour:
   attackDamage: 10
   maxDist: 20
   obj: {fileID: 5163217355632077224, guid: 9241408e5744c234fb66bb9c00f557bf, type: 3}
+  reverse: 1
   health: 100
 --- !u!82 &1628930075
 AudioSource:
@@ -35290,6 +35295,7 @@ MonoBehaviour:
   attackDamage: 10
   maxDist: 20
   obj: {fileID: 5163217355632077224, guid: 9241408e5744c234fb66bb9c00f557bf, type: 3}
+  reverse: 0
   health: 100
 --- !u!82 &1766175743
 AudioSource:

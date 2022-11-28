@@ -543,6 +543,8 @@ MonoBehaviour:
   projectileOrigin: {fileID: 1682943637}
   projectfilePrefab: {fileID: 3739378204167223196, guid: f1afcbb06a0460048b074dc1dfb324be, type: 3}
   time: 0
+  hp_image: {fileID: 1154530923}
+  hp_image2: {fileID: 581589240}
 --- !u!54 &918591202
 Rigidbody:
   m_ObjectHideFlags: 0
