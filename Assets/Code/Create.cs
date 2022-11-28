@@ -8,12 +8,11 @@ public class Create : MonoBehaviour
     public bool stopspawn = false;
     public float spawnDelay;
     public float spawnTime;
-    private float time = 0;
+    public float time = 0;
 
     public int cur_num = 0;
 
-    private int cur_wave = 1;
-    private float stop_time = 0;
+    public int cur_wave = 1;
    void Start(){
     // if(时间夜晚)
     InvokeRepeating("SpawnObj",spawnTime,spawnDelay);
@@ -29,18 +28,8 @@ public class Create : MonoBehaviour
         }else{
             if (cur_num < cur_wave*3)
             {
-                if (stop_time < 3)
-                {
-                    stop_time += Time.deltaTime;
-                }
-                else
-                {
-                    Instantiate(obj, new Vector3(Random.Range(-20, -13), Random.Range(4, 8), Random.Range(-120, -90)), Quaternion.identity);
-                    cur_num += 1;
-                    stop_time = 0;
-
-                }
-                
+                Instantiate(obj, new Vector3(Random.Range(-20, -13), Random.Range(4, 8), Random.Range(-150, -70)), Quaternion.identity);
+                cur_num += 1;
             }
             
             
@@ -48,11 +37,11 @@ public class Create : MonoBehaviour
    }
 
    void Update() {
-        if (time < 20)
+        if (time < 5)
         {
             time += Time.deltaTime;
         } else {
-            if (time < 30)
+            if (time < 5)
             {
                 stopspawn = true;
                 time += Time.deltaTime;
