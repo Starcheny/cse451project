@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+/*
 public class ItemOnWorld : MonoBehaviour
 {
     public Item thisItem;
@@ -32,6 +32,7 @@ public class ItemOnWorld : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))
@@ -55,3 +56,4 @@ public class ItemOnWorld : MonoBehaviour
         }
     }
 }
+*/
