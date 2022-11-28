@@ -18,7 +18,7 @@ public class raser : MonoBehaviour
     private GameObject game_player;
     private Text armor;
     public GameObject obj;
-
+    public bool reverse;
     public float health;
     void Start()
     {
@@ -102,10 +102,16 @@ public class raser : MonoBehaviour
         {
             //Debug.DrawLine(firePoint.position, new Vector3(firePoint.position.x+dist, firePoint.position.y, firePoint.position.z), Color.red);
             //Debug.Log("Did not Hit");
-
-            float temp = dist;
+            if (reverse)
+            {
+                dist *= -1;
+            }
             _lineRenderer.SetPosition(1,
                new Vector3(firePoint.position.x + dist, firePoint.position.y, firePoint.position.z));
+            if (reverse)
+            {
+                dist *= -1;
+            }
             _lineRenderer.colorGradient = greenColor;
         }
 

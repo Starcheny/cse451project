@@ -1,13 +1,49 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "NPC file", menuName = "NPC Files Archive")]
-public class NPC : ScriptableObject
-{
-   public string name;
-   [TextArea(3,15)]
-   public string[] dialogue;
-   [TextArea(3,15)]
-   public string[] playerDialogue;
+[System.Serializable]
+public class NPCs : MonoBehaviour {
+
+    public Transform ChatBackGround;
+    public Transform NPCCharacter;
+
+    private DialogueSystem dialogueSystem;
+
+    public string Name;
+
+    [TextArea(5, 10)]
+    public string[] sentences;
+
+    void Start () {
+        dialogueSystem = FindObjectOfType<DialogueSystem>();
+    }
+	
+	void Update () {
+          Vector3 Pos = Camera.main.WorldToScreenPoint(NPCCharacter.position);
+          Pos.y += 175;
+          ChatBackGround.position = Pos;
+    }
+
+    public void OnTriggerStay(Collider other)
+    {
+        this.gameObject.GetComponent<NPC>().enabled = true;
+        FindObjectOfType<DialogueSystem>().EnterRangeOfNPC();
+        if ((other.gameObject.tag == "Player") && Input.GetKeyDown(KeyCode.F))
+        {
+            this.gameObject.GetComponent<NPC>().enabled = true;
+            dialogueSystem.Names = Name;
+            dialogueSystem.dialogueLines = sentences;
+            FindObjectOfType<DialogueSystem>().NPCName();
+        }
+    }
+
+    public void OnTriggerExit()
+    {
+        FindObjectOfType<DialogueSystem>().OutOfRange();
+        this.gameObject.GetComponent<NPC>().enabled = false;
+    }
 }
+
+

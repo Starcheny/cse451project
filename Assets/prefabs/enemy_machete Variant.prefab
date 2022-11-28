@@ -60,6 +60,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: enemy4
       objectReference: {fileID: 0}
+    - target: {fileID: 5679130388951904370, guid: 12c3f03da74c2cf4891b73d3b7fca94b, type: 3}
+      propertyPath: m_Mass
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5679130388951904368, guid: 12c3f03da74c2cf4891b73d3b7fca94b, type: 3}
     - {fileID: 8527612506511303756, guid: 12c3f03da74c2cf4891b73d3b7fca94b, type: 3}
