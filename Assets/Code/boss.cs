@@ -32,6 +32,12 @@ public class boss : MonoBehaviour
     public GameObject projectfilePrefab;
     public float time;
     private bool stop;
+
+    private float max_health;
+
+    float hp_percent;
+    public Image hp_image;
+    public Image hp_image2;
     void Start()
     {
         //find animator
@@ -41,7 +47,10 @@ public class boss : MonoBehaviour
         this.game_player = GameObject.FindGameObjectWithTag("Player");
 
 
-        this.health = 100;
+        this.health = 200;
+
+
+        this.max_health = 200f;
     }
 
     // Update is called once per frame
@@ -101,8 +110,18 @@ public class boss : MonoBehaviour
             }
 
         }
-       
 
+        hp_percent = this.health / this.max_health;
+
+        hp_image.fillAmount = hp_percent;
+
+        hp_image.transform.position = new Vector3(Screen.width * 5 / 10, Screen.height * 19 / 20);
+        hp_image2.transform.position = new Vector3(Screen.width * 5 / 10, Screen.height * 19 / 20);
+
+
+
+        hp_image.rectTransform.sizeDelta = new Vector2(Screen.width * 2 / 25, Screen.height * 1 / 90);
+        hp_image2.rectTransform.sizeDelta = new Vector2(Screen.width * 2 / 25, Screen.height * 1 / 90);
     }
 
 
@@ -110,6 +129,9 @@ public class boss : MonoBehaviour
     public void be_hit(float harm)
     {
         health -= harm;
+
+        
+        
     }
 
 
