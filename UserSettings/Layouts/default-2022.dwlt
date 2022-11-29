@@ -934,13 +934,9 @@ MonoBehaviour:
 =======
 <<<<<<< Updated upstream
     m_Value: {x: 0.055693783, y: -0.5097453, z: 0.033055097, w: 0.8578843}
-=======
-    m_Value: {x: -0.007920792, y: -0.967998, z: 0.030802205, w: -0.2489343}
->>>>>>> Stashed changes
   m_Size:
     m_Target: 107.715836
     speed: 2
-<<<<<<< Updated upstream
     m_Value: 107.715836
 =======
     m_Value: 4.1928663
@@ -1348,7 +1344,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
