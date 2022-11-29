@@ -49,7 +49,7 @@ public class Create : MonoBehaviour
 
         if (start)
         {
-            if (time < spawnDelay)
+            if (time < spawnDelay + cur_wave)
             {
                 
                 time += Time.deltaTime;
@@ -57,7 +57,7 @@ public class Create : MonoBehaviour
             }
             else
             {
-                if (time < spawnDelay+2)
+                if (time < spawnDelay+2+cur_wave)
                 {
                     time += Time.deltaTime;
                     Timer.text = "Coming!";
