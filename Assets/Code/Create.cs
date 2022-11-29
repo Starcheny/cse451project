@@ -22,6 +22,7 @@ public class Create : MonoBehaviour
     private bool start = false;
 
     private float time2 = 0;
+    public int max_wave;
    void Start(){
     // if(时间夜晚)
         Timer.transform.position = new Vector3(Screen.width * 4 / 10, Screen.height * 19 / 20);
@@ -76,6 +77,10 @@ public class Create : MonoBehaviour
                         cur_num += 1;
                     }
                     time = 0;
+                    if(cur_wave == max_wave)
+                    {
+                        start = false;
+                    }
                 }
 
             }
@@ -85,9 +90,15 @@ public class Create : MonoBehaviour
 
 
     }
-
+   
    public void delete()
     {
         cur_num -= 1;
+    }
+
+
+    public void stop_born()
+    {
+        start = false;
     }
 }

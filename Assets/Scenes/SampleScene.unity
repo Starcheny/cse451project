@@ -30144,11 +30144,12 @@ MonoBehaviour:
   obj: {fileID: 5585912406093623250, guid: 6c1a2bb23e645ee40bdf1a33bce1a2dd, type: 3}
   stopspawn: 0
   spawnDelay: 3
-  spawnTime: 1
+  spawnTime: 120
   time: 0
   cur_num: 0
   cur_wave: 0
   Timer: {fileID: 951673954}
+  max_wave: 10
 --- !u!4 &1509149412
 Transform:
   m_ObjectHideFlags: 0
