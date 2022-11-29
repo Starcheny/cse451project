@@ -12785,6 +12785,11 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &630273728 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7724228893817619495, guid: 5101f099364f9dc41bcacf93ef340a12, type: 3}
+  m_PrefabInstance: {fileID: 1768140354}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &631548517
 GameObject:
   m_ObjectHideFlags: 0
@@ -15651,6 +15656,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5db1dbf5c1e82ab4b9298d2104ec30da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boss: {fileID: 630273728}
+  Timer: {fileID: 951673954}
+  create: {fileID: 1509149410}
 --- !u!136 &748385693
 CapsuleCollider:
   m_ObjectHideFlags: 0
