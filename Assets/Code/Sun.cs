@@ -20,6 +20,7 @@ public class Sun : MonoBehaviour
         if (sunPos.position.y >= 0)
         {
             timerReached = false;
+            if (timerReached) { }
             // STOP GENERATE MONSTERS
             //Debug.Log("sun is day");
             //Debug.Log(timerReached);

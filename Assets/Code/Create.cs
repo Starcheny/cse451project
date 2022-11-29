@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Create : MonoBehaviour
 {
@@ -12,48 +14,77 @@ public class Create : MonoBehaviour
 
     public int cur_num = 0;
 
-    public int cur_wave = 1;
+    public int cur_wave = 0;
+
+    public Text Timer;
+
+
+    private bool start = false;
+
+    private float time2 = 0;
    void Start(){
     // if(时间夜晚)
-    InvokeRepeating("SpawnObj",spawnTime,spawnDelay);
+        Timer.transform.position = new Vector3(Screen.width * 4 / 10, Screen.height * 19 / 20);
+        Timer.rectTransform.sizeDelta = new Vector2(Screen.width * 4 / 25, Screen.height * 5 / 90);
+        
+        time2 = spawnTime;
    
    }
-   public void SpawnObj()
-   {    
-
-        
-        // Instantiate(obj,new Vector3(Random.Range(-2,-4),0,Random.Range(10,15)),Quaternion.identity);
-        if(stopspawn) {
-            CancelInvoke("SpawnObj");
-        }else{
-            if (cur_num < cur_wave*3)
-            {
-                Instantiate(obj, new Vector3(Random.Range(-20, -13), Random.Range(4, 8), Random.Range(-150, -70)), Quaternion.identity);
-                cur_num += 1;
-            }
-            
-            
-        }
-   }
+   
 
    void Update() {
-        if (time < 5)
+        
+        if (time2 >0)
         {
-            time += Time.deltaTime;
-        } else {
-            if (time < 5)
+            
+            Timer.text = "Time: " + Mathf.Round(time2); ;
+            time2 -= Time.deltaTime;
+        }
+        else
+        {
+            start = true;
+        }
+
+
+        if (start)
+        {
+            if (time < spawnDelay)
             {
-                stopspawn = true;
+                
                 time += Time.deltaTime;
+                Timer.text = "Time: " + Mathf.Round(time) + "              Wave: " + cur_wave;
             }
             else
             {
-                cur_wave += 1;
-                stopspawn = false;
-                time = 0;
+                if (time < spawnDelay+2)
+                {
+                    time += Time.deltaTime;
+                    Timer.text = "Coming!";
+                }
+                else
+                {
+
+                    Timer.text = "Wave: " + cur_wave;
+                    
+                    cur_wave += 1;
+                    int num = cur_wave * 3 -  cur_num;
+
+                    
+                    for(int i =0;i<num;i++)
+                    {
+                        Instantiate(obj, new Vector3(UnityEngine.Random.Range(-20, -13), UnityEngine.Random.Range(4, 8), UnityEngine.Random.Range(-150, -70)), Quaternion.identity);
+                        cur_num += 1;
+                    }
+                    time = 0;
+                }
+
             }
         }
-   }
+        
+
+
+
+    }
 
    public void delete()
     {

@@ -52,6 +52,7 @@ public class raser : MonoBehaviour
 
             }
             Instantiate(obj, this.transform.position, Quaternion.identity);
+
             Destroy(this.gameObject);
         }
         time += 1*Time.deltaTime;
