@@ -62,7 +62,7 @@ namespace OpenDoor {
 
                     if(Physics.Raycast(ray, out hit, 2f)) {
                         //Debug : Test first-person interactions
-                        print("Interacted with" + hit.transform.name + "from " + hit.distance + "m.");
+                        //print("Interacted with" + hit.transform.name + "from " + hit.distance + "m.");
 
                         //Door
                         Door targetDoor = hit.transform.GetComponent<Door>();
