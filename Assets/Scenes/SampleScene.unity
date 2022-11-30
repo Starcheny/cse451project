@@ -3662,7 +3662,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh28102
+  m_Name: pb_Mesh28140
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -8610,7 +8610,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh25392
+  m_Name: pb_Mesh25378
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -10217,7 +10217,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh25286
+  m_Name: pb_Mesh25274
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -17938,6 +17938,7 @@ GameObject:
   - component: {fileID: 881403516}
   - component: {fileID: 881403515}
   - component: {fileID: 881403514}
+  - component: {fileID: 881403517}
   m_Layer: 0
   m_Name: Terrain
   m_TagString: Untagged
@@ -17998,13 +17999,26 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 881403513}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -219.5, y: -1.9, z: -191.8}
+  m_LocalPosition: {x: -219.5, y: -1.8, z: -191.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 35
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &881403517
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 881403513}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &882489172 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3398150194307956220, guid: a5d604ff802d078c0abe23fbe1418cfa, type: 3}
@@ -18779,7 +18793,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh27762
+  m_Name: pb_Mesh27786
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -19038,7 +19052,7 @@ Animator:
   m_GameObject: {fileID: 924997309}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ee4792c55733ef34ba12497f8ccfeb70, type: 2}
+  m_Controller: {fileID: 9100000, guid: e9359e17ec0f90a49a072137e03c5cdf, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -31338,6 +31352,7 @@ GameObject:
   - component: {fileID: 1576067775}
   - component: {fileID: 1576067774}
   - component: {fileID: 1576067773}
+  - component: {fileID: 1576067776}
   m_Layer: 0
   m_Name: Terrain (1)
   m_TagString: Untagged
@@ -31405,6 +31420,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 36
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1576067776
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1576067772}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1581879883
 GameObject:
   m_ObjectHideFlags: 0
@@ -31443,7 +31471,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh25976
+  m_Name: pb_Mesh25936
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -33966,7 +33994,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh25612
+  m_Name: pb_Mesh25580
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -43066,6 +43094,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 745201240, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 745201241, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
       propertyPath: m_SizeDelta.x
       value: 634.9575
